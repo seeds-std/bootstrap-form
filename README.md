@@ -1,6 +1,7 @@
 BootstrapForm, forms for Laravel 5
 ==================================
 
+[![Build Status](https://travis-ci.com/seeds-std/bootstrap-form.svg?branch=master)](https://travis-ci.com/seeds-std/bootstrap-form)
 [![Circle CI](https://circleci.com/gh/dwightwatson/bootstrap-form/tree/master.svg?style=shield)](https://circleci.com/gh/dwightwatson/bootstrap-form/tree/master)
 [![Total Downloads](https://poser.pugx.org/watson/bootstrap-form/downloads.svg)](https://packagist.org/packages/watson/bootstrap-form)
 [![Latest Stable Version](https://poser.pugx.org/watson/bootstrap-form/v/stable.svg)](https://packagist.org/packages/watson/bootstrap-form)
@@ -45,7 +46,7 @@ Of course, if there are errors for that field it will even populate them.
 First, require the package using Composer.
 
 ```shell
-composer require watson/bootstrap-form
+composer require seeds-std/bootstrap-form
 ```
 
 Now, add these service providers to your `config/app.php` file (don't add the `HtmlServiceProvider` if you already have it).
