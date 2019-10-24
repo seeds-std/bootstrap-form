@@ -15,7 +15,7 @@ class BootstrapFormTest extends TestCase
 
     protected $sessionMock;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->htmlBuilderMock = Mockery::mock('Collective\Html\HtmlBuilder');
         $this->formBuidlerMock = Mockery::mock('Collective\Html\FormBuilder');
@@ -193,7 +193,7 @@ class BootstrapFormTest extends TestCase
 
         $this->assertEquals('foo.bar', $result);
     }
-    
+
     /** @test */
     public function in_allows_zero_in_field_name()
     {
