@@ -1,6 +1,7 @@
 BootstrapForm, forms for Laravel 5
 ==================================
 
+[![Build Status](https://travis-ci.com/seeds-std/bootstrap-form.svg?branch=master)](https://travis-ci.com/seeds-std/bootstrap-form)
 [![Circle CI](https://circleci.com/gh/dwightwatson/bootstrap-form/tree/master.svg?style=shield)](https://circleci.com/gh/dwightwatson/bootstrap-form/tree/master)
 [![Total Downloads](https://poser.pugx.org/watson/bootstrap-form/downloads.svg)](https://packagist.org/packages/watson/bootstrap-form)
 [![Latest Stable Version](https://poser.pugx.org/watson/bootstrap-form/v/stable.svg)](https://packagist.org/packages/watson/bootstrap-form)
