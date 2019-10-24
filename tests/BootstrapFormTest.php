@@ -1,8 +1,9 @@
 <?php
 
+use PHPUnit\Framework\TestCase;
 use Watson\BootstrapForm\BootstrapForm;
 
-class BootstrapFormTest extends PHPUnit_Framework_TestCase
+class BootstrapFormTest extends TestCase
 {
     protected $bootstrapForm;
 
