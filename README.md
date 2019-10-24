@@ -46,7 +46,7 @@ Of course, if there are errors for that field it will even populate them.
 First, require the package using Composer.
 
 ```shell
-composer require watson/bootstrap-form
+composer require seeds-std/bootstrap-form
 ```
 
 Now, add these service providers to your `config/app.php` file (don't add the `HtmlServiceProvider` if you already have it).
