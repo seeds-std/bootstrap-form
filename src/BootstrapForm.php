@@ -529,7 +529,7 @@ class BootstrapForm
      */
     public function radios($name, $label = null, $choices = [], $checkedValue = null, $inline = false, array $options = [])
     {
-        $elements = '';
+        $elements = (isset($options['hiddenField']) && $options['hiddenField']) ? $this->hidden($name, '') : '';
 
         foreach ($choices as $value => $choiceLabel) {
             $checked = $value === $checkedValue;
