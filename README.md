@@ -43,10 +43,23 @@ Of course, if there are errors for that field it will even populate them.
 
 ## Installation
 
-First, require the package using Composer.
+First, add repository to composer.json which replaces watson/bootstrap-form with seeds-std/bootstrap-form.
+
+```json
+{
+    "repositories": {
+        "watson/bootstrap-form": {
+            "type": "vcs",
+            "url": "https://github.com/seeds-std/bootstrap-form"
+        }
+    }
+}
+```
+
+Then, require the package using Composer.
 
 ```shell
-composer require seeds-std/bootstrap-form
+composer require watson/bootstrap-form:dev-master
 ```
 
 Now, add these service providers to your `config/app.php` file (don't add the `HtmlServiceProvider` if you already have it).
