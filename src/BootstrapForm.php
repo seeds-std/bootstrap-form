@@ -483,7 +483,8 @@ class BootstrapForm
      */
     public function radio($name, $label = null, $value = null, $checked = null, array $options = [])
     {
-        $inputElement = $this->radioElement($name, $label, $value, $checked, false, $options);
+        $inputElement = (isset($options['hiddenField']) && $options['hiddenField']) ? $this->hidden($name, '') : '';
+        $inputElement .= $this->radioElement($name, $label, $value, $checked, false, $options);
 
         $wrapperOptions = $this->isHorizontal() ? ['class' => implode(' ', [$this->getLeftColumnOffsetClass(), $this->getRightColumnClass()])] : [];
         $wrapperElement = '<div' . $this->html->attributes($wrapperOptions) . '>' . $inputElement . '</div>';
