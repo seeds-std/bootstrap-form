@@ -414,7 +414,8 @@ class BootstrapForm
      */
     public function checkbox($name, $label = null, $value = 1, $checked = null, array $options = [])
     {
-        $inputElement = $this->checkboxElement($name, $label, $value, $checked, false, $options);
+        $inputElement = (isset($options['hiddenField']) && $options['hiddenField']) ? $this->hidden($name, 0) : '';
+        $inputElement .= $this->checkboxElement($name, $label, $value, $checked, false, $options);
 
         $wrapperOptions = $this->isHorizontal() ? ['class' => implode(' ', [$this->getLeftColumnOffsetClass(), $this->getRightColumnClass()])] : [];
         $wrapperElement = '<div' . $this->html->attributes($wrapperOptions) . '>' . $inputElement . $this->getFieldError($name) . $this->getHelpText($name, $options) . '</div>';
