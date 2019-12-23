@@ -414,11 +414,15 @@ class BootstrapForm
      */
     public function checkbox($name, $label = null, $value = 1, $checked = null, array $options = [])
     {
-        $inputElement = (isset($options['hiddenField']) && $options['hiddenField']) ? $this->hidden($name, 0) : '';
-        $inputElement .= $this->checkboxElement($name, $label, $value, $checked, false, $options);
+        $defaultOptions = ['hiddenField' => 0];
+        $options = array_merge($defaultOptions, $options);
+        $hiddenElement = $options['hiddenField'] === false ? '' : $this->hidden($name, $options['hiddenField']);
+        unset($options['hiddenField']);
+
+        $inputElement = $this->checkboxElement($name, $label, $value, $checked, false, $options);
 
         $wrapperOptions = $this->isHorizontal() ? ['class' => implode(' ', [$this->getLeftColumnOffsetClass(), $this->getRightColumnClass()])] : [];
-        $wrapperElement = '<div' . $this->html->attributes($wrapperOptions) . '>' . $inputElement . $this->getFieldError($name) . $this->getHelpText($name, $options) . '</div>';
+        $wrapperElement = '<div' . $this->html->attributes($wrapperOptions) . '>' . $hiddenElement . $inputElement . $this->getFieldError($name) . $this->getHelpText($name, $options) . '</div>';
 
         return $this->getFormGroup($name, null, $wrapperElement);
     }
@@ -484,11 +488,15 @@ class BootstrapForm
      */
     public function radio($name, $label = null, $value = null, $checked = null, array $options = [])
     {
-        $inputElement = (isset($options['hiddenField']) && $options['hiddenField']) ? $this->hidden($name, '') : '';
-        $inputElement .= $this->radioElement($name, $label, $value, $checked, false, $options);
+        $defaultOptions = ['hiddenField' => ''];
+        $options = array_merge($defaultOptions, $options);
+        $hiddenElement = $options['hiddenField'] === false ? '' : $this->hidden($name, $options['hiddenField']);
+        unset($options['hiddenField']);
+
+        $inputElement = $this->radioElement($name, $label, $value, $checked, false, $options);
 
         $wrapperOptions = $this->isHorizontal() ? ['class' => implode(' ', [$this->getLeftColumnOffsetClass(), $this->getRightColumnClass()])] : [];
-        $wrapperElement = '<div' . $this->html->attributes($wrapperOptions) . '>' . $inputElement . '</div>';
+        $wrapperElement = '<div' . $this->html->attributes($wrapperOptions) . '>' . $hiddenElement . $inputElement . '</div>';
 
         return $this->getFormGroup(null, $label, $wrapperElement);
     }
@@ -531,7 +539,12 @@ class BootstrapForm
      */
     public function radios($name, $label = null, $choices = [], $checkedValue = null, $inline = false, array $options = [])
     {
-        $elements = (isset($options['hiddenField']) && $options['hiddenField']) ? $this->hidden($name, '') : '';
+        $defaultOptions = ['hiddenField' => ''];
+        $options = array_merge($defaultOptions, $options);
+        $hiddenElement = $options['hiddenField'] === false ? '' : $this->hidden($name, $options['hiddenField']);
+        unset($options['hiddenField']);
+
+        $elements = '';
 
         foreach ($choices as $value => $choiceLabel) {
             $checked = $value === $checkedValue;
@@ -540,7 +553,7 @@ class BootstrapForm
         }
 
         $wrapperOptions = $this->isHorizontal() ? ['class' => $this->getRightColumnClass()] : [];
-        $wrapperElement = '<div' . $this->html->attributes($wrapperOptions) . '>' . $elements . $this->getFieldError($name) . $this->getHelpText($name, $options) . '</div>';
+        $wrapperElement = '<div' . $this->html->attributes($wrapperOptions) . '>' . $hiddenElement . $elements . $this->getFieldError($name) . $this->getHelpText($name, $options) . '</div>';
 
         return $this->getFormGroup($name, $label, $wrapperElement);
     }
